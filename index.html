@@ -38,15 +38,14 @@
             <div class="home__data">
                 <h3>Salut ! <br><br>Je suis</h3>
 
-                <h1 class="home__title"><br>Moïse <span class="home__title-color">MUNONGO</span><br>
+                <h1 class="home__title "><br>Moïse <span class="home__title-color">MUNONGO</span><br>
                     <p style="font-size: 30px;">Développeur full
                         stack,</p>
                     <p style="font-size: 20px;">Professionnel polyvalent, passionné de la musique avec des compétence en
                         tant que pianiste et guitariste-polyvalent.</p>
                 </h1>
 
-                <a href="#" class="button">Contactez-moi</a>
-
+                <a href="mailto:munongomoise49@gmail.com" class="button">Contactez-moi</a>
             </div>
 
             <div class="home__social">
@@ -102,7 +101,7 @@
 
                         </div>
                         <div>
-                            <span class="skills__percentage">95%</span>
+                            <span class="skills__percentage">90%</span>
                         </div>
                     </div>
                     <div class="skills__data">
@@ -164,6 +163,7 @@
         <section class="work section" id="work">
             <h2 class="section-title">Mes projets</h2>
 
+
             <div class="work__container bd-grid">
                 <a href="" class="work__img">
                     <img src="Frame 1.png" alt="">
@@ -191,13 +191,16 @@
 
             <div class="contact__container bd-grid">
                 <form action="" class="contact__form">
-                    <input type="text" placeholder="Nom" class="contact__input">
-                    <input type="mail" placeholder="Email" class="contact__input">
-                    <input type="mail" placeholder="Télephone" class="contact__input">
-                    <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                    <input type="button" value="Envoyer" class="button">
+                    <input type="text" placeholder="Nom" class="contact__input" required>
+                    <input type="email" placeholder="Email" class="contact__input" required>
+                    <input type="tel" placeholder="Télephone" class="contact__input" pattern="[0-9]{10}" required>
+                    <textarea name="" id="" cols="0" rows="10" class="contact__input" required></textarea>
+                    <input type="submit" value="Envoyer" class="button">
+
                 </form>
+
             </div>
+
         </section>
     </main>
 
@@ -213,6 +216,7 @@
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="script.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 
 </html>

@@ -8,18 +8,15 @@
     --hue-color: 224;
     --first-color: hsl(var(--hue-color), 89%, 60%);
     --second-color: hsl(var(--hue-color), 56%, 12%);
-    /*===== Fuente y tipografia =====*/
     --body-font: 'Poppins', sans-serif;
     --big-font-size: 2rem;
     --h2-font-size: 1.25rem;
     --normal-font-size: .938rem;
     --smaller-font-size: .75rem;
-    /*===== Margenes =====*/
     --mb-2: 1rem;
     --mb-4: 2rem;
     --mb-5: 2.5rem;
     --mb-6: 3rem;
-    /*===== z index =====*/
     --z-back: -10;
     --z-fixed: 100;
 
@@ -35,7 +32,6 @@
     }
 }
 
-/*===== BASE =====*/
 *,
 ::before,
 ::after {
@@ -344,7 +340,7 @@ img {
     border-radius: .5rem;
 }
 
-/* ===== WORK =====*/
+
 .work__container {
     row-gap: 2rem;
 }
@@ -360,10 +356,10 @@ img {
 }
 
 .work__img img:hover {
-    transform: scale(1.1);
+    transform: scale(1.5);
 }
 
-/* ===== CONTACT =====*/
+
 .contact__input {
     width: 100%;
     font-size: var(--normal-font-size);
@@ -384,7 +380,7 @@ img {
     margin-left: auto;
 }
 
-/* ===== FOOTER =====*/
+
 .footer {
     background-color: var(--second-color);
     color: #fff;
@@ -412,7 +408,7 @@ img {
     font-size: var(--smaller-font-size);
 }
 
-/* ===== MEDIA QUERIES=====*/
+
 @media screen and (max-width: 320px) {
     .home {
         row-gap: 2rem;
