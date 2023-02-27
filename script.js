@@ -50,30 +50,36 @@ sr.reveal('.home__social-icon',{ interval: 200});
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
 
 
-const form = document.querySelector('.contact__form');
-const nom = form.querySelector('[placeholder="Nom"]');
-const email = form.querySelector('[placeholder="Email"]');
-const telephone = form.querySelector('[placeholder="Télephone"]');
-const message = form.querySelector('textarea');
 
+const form = document.querySelector('form');
 form.addEventListener('submit', (event) => {
-  event.preventDefault(); // empêcher la soumission du formulaire
-// Charger la bibliothèque cliente Gmail API
-gapi.load('client:auth2', function() {
+  event.preventDefault(); 
+        // Récupérer les valeurs des champs de formulaire
+        const nom = document.querySelector('#nom');
+        const email = document.querySelector('#email');
+        const telephone = document.querySelector('#telephone');
+        const message = document.querySelector('#message');
+        const nomValue = nom.value;
+        const emailValue = email.value;
+        const telephoneValue = telephone.value;
+        const messageValue = message.value;
+
+  // Charger la bibliothèque cliente Gmail API
+  gapi.load('client:auth2', function() {
     // Authentifier l'utilisateur avec le flux d'authentification OAuth 2.0
     gapi.auth2.init({
       client_id: '315126351343-lgceug0jgiah9j7v8asocmvm094u7r37.apps.googleusercontent.com',
       scope: 'https://www.googleapis.com/auth/gmail.send'
     }).then(function() {
       // Envoyer un e-mail
-      function sendEmail(nom, email, telephone, message) {
-        var base64EncodedEmail = btoa("From: " + email + "\n" +
+      function sendEmail(nomValue, emailValue, telephoneValue, messageValue) {
+        var base64EncodedEmail = btoa("From: " + emailValue + "\n" +
                                       "To: munongomoise49@gmail.com\n" +
-                                      "Subject: Nouveau message de " + nom + "\n\n" +
-                                      "Nom : " + nom + "\n" +
-                                      "Email : " + email + "\n" +
-                                      "Téléphone : " + telephone + "\n" +
-                                      "Message : " + message);
+                                      "Subject: Nouveau message de " + nomValue + "\n\n" +
+                                      "Nom : " + nomValue + "\n" +
+                                      "Email : " + emailValue + "\n" +
+                                      "Téléphone : " + telephoneValue + "\n" +
+                                      "Message : " + messageValue);
         var request = gapi.client.gmail.users.messages.send({
           'userId': 'me',
           'resource': {
@@ -85,22 +91,18 @@ gapi.load('client:auth2', function() {
         });
       }
   
-      // Récupérer les valeurs des champs de formulaire
-      const nomValue = nom.value;
-      const emailValue = email.value;
-      const telephoneValue = telephone.value;
-      const messageValue = message.value;
-  
-      // Envoyer l'e-mail en utilisant les valeurs des champs de formulaire
-      sendEmail(nomValue, emailValue, telephoneValue, messageValue);
+      // Envoyer l'e-mail 
+      sendEmail;
     });
   });
-
 });
-
 
   
 // ID ccclient
 // 315126351343-lgceug0jgiah9j7v8asocmvm094u7r37.apps.googleusercontent.com
 // code secret client 
 // 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
+
+
+
+
