@@ -49,7 +49,27 @@ sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
 
-
+function sendMail() {
+  var params = {
+      nom: form.nom.value,
+      email: form.email.value,
+      telephone: form.telephone.value,
+      message: form.message.value,
+      
+  };
+  const serviceID = "service_23ktx4l";
+  const templateID = "template_199f2p9";
+  emailjs.send(serviceID, templateID, params)
+      .then(res => {
+          nom: form.nom.value = "";
+          message: form.message.value = ""; 
+          email: form.email.value = "";
+          telephone: form.telephone.value = "";
+          console.log(res);
+          alert('Votre message a bien été envoyer');
+      })
+      .catch(err => console.log(err));
+}
 
 const form = document.querySelector('form');
 form.addEventListener('submit', (event) => {
@@ -63,38 +83,9 @@ form.addEventListener('submit', (event) => {
         const emailValue = email.value;
         const telephoneValue = telephone.value;
         const messageValue = message.value;
+        sendMail();
 
-  // Charger la bibliothèque cliente Gmail API
-  gapi.load('client:auth2', function() {
-    // Authentifier l'utilisateur avec le flux d'authentification OAuth 2.0
-    gapi.auth2.init({
-      client_id: '315126351343-lgceug0jgiah9j7v8asocmvm094u7r37.apps.googleusercontent.com',
-      scope: 'https://www.googleapis.com/auth/gmail.send'
-    }).then(function() {
-      // Envoyer un e-mail
-      function sendEmail(nomValue, emailValue, telephoneValue, messageValue) {
-        var base64EncodedEmail = btoa("From: " + emailValue + "\n" +
-                                      "To: munongomoise49@gmail.com\n" +
-                                      "Subject: Nouveau message de " + nomValue + "\n\n" +
-                                      "Nom : " + nomValue + "\n" +
-                                      "Email : " + emailValue + "\n" +
-                                      "Téléphone : " + telephoneValue + "\n" +
-                                      "Message : " + messageValue);
-        var request = gapi.client.gmail.users.messages.send({
-          'userId': 'me',
-          'resource': {
-            'raw': base64EncodedEmail
-          }
-        });
-        request.execute(function(response) {
-          console.log(response);
-        });
-      }
-  
-      // Envoyer l'e-mail 
-      sendEmail;
-    });
-  });
+
 });
 
   
